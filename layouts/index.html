@@ -1,29 +1,49 @@
-{{ define "main" }}
+baseURL= 'https://Jdoubleuotto.github.io/hugo-mock-landing-page-domain-name/'
+title = "Eco-Friendly Water Bottles"
+author = "John Otto"
+copyright = "Open-source <a class=\"text-muted text-decoration-none\" href=\"https://github.com/filipecarneiro/hugo-bootstrap-theme/blob/main/LICENSE\">MIT</a> Licensed."
 
-<section class="section bd-masthead"  style="background-color: #28a745;">
-  <div class="container-xxl">
-    <div class="col-md-8 mx-auto text-center my-5">
-      <img class="d-block mx-auto mb-3" src="{{ `images/logo.png` | relURL }}" width="150" height="200" alt="Updated to logo">
-      <h1 class="display-4 fw-semibold mb-3">{{ .Site.Title }}</h1>
-      <p class="lead mb-4">{{ .Site.Params.Description }}</p>
-      <a class="btn btn-bd-primary btn-lg px-4 mb-2" href="https://github.com/filipecarneiro/hugo-bootstrap-theme" role="button">Get Started</a>
-      <p class="text-muted mb-0">Open-source MIT Licensed.</p>
-    </div>
-  </div>
-</section>
+timeZone = 'Europe/London'
 
-<section class="section container my-3">
-  {{ partial "features" . }}
-</section>
+# Multilingual
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Latest Posts</h3>
-  {{ partial "latest-posts" . }}
-</section>
+theme = "hugo-bootstrap-theme"
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Featured Pages</h3>
-  {{ partial "featured-pages" . }}
-</section>
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+#sectionPagesMenu = "main"
+#googleAnalytics = "UA-1511XXXX-X"
 
-{{ end }}
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = 'series'
+  author = "authors"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[permalinks]
+#  post = "/post/:title/"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.99.1"
+    max = ""
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
